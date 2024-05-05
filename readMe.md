@@ -1,6 +1,17 @@
 # 向指定好友/群发送语音
 
-基于mirai-api-http
+[安装mirai-api-http的教程，仅供参考，这是我另一个项目的，但安装mirai-api-http部分是通用的](https://github.com/avilliai/Bergml/releases/tag/idn)
+## 🛰前置内容
+- 请确保已安装[mirai-api-http](https://github.com/project-mirai/mirai-api-http) 并[正确配置](https://github.com/avilliai/wReply/blob/master/setting.yml) <br>
+  - [下载mirai-api-http](https://github.com/project-mirai/mirai-api-http) 放进mirai/plugins文件夹
+  - 启动一次Mirai，关闭
+  - 用[配置](https://github.com/avilliai/wReply/blob/master/setting.yml) 替换config/net.mamoe.mirai-api-http/setting.yml
+  - 启动mirai，至此，完成Mirai部分配置
+## 🚀部署
+从[release下载](https://github.com/avilliai/Lisianthus/releases) 最新的压缩包<br>
+解压<br>
+填写settings.yaml<br>
+双击main.exe
 
 # 配置settings.yaml
 你一眼就能看懂的

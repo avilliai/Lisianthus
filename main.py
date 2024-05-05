@@ -37,6 +37,7 @@ def newLogger():
 
 
 async def superVG(speaker,text):
+    text=text.replace("嫉妒","季度")
 
     if speaker not in ["BT", "塔菲", "阿梓", "otto", "丁真", "星瞳", "东雪莲", "嘉然", "孙笑川", "亚托克斯", "文静", "鹿鸣", "奶绿", "七海", "恬豆",
                        "科比","胡桃"]:
@@ -152,12 +153,12 @@ def main(bot,logger):
     global aimGroup
     global aimFriend
     global speaker
+    speaker = "阿梓"
     @bot.on(FriendMessage)
     async def sendTo(event: FriendMessage):
         global aimGroup
         global aimFriend
         global speaker
-        speaker="阿梓"
         if event.sender.id==master:
             if str(event.message_chain).startswith("连接群 "):
                 aimGroup=int(str(event.message_chain).split(" ")[1])
@@ -170,11 +171,13 @@ def main(bot,logger):
                 await bot.send(event, "设置speaker成功")
             elif str(event.message_chain).startswith("群 "):
                 text=str(event.message_chain).replace("群 ","")
+                logger.info(f"开始语音合成任务：{speaker} | {text}")
                 p=await superVG(speaker,text)
                 await bot.send_group_message(aimGroup,Voice(path=p))
                 await bot.send(event, "发送成功")
             elif str(event.message_chain).startswith("好友 "):
                 text=str(event.message_chain).replace("好友 ","")
+                logger.info(f"开始语音合成任务：{speaker} | {text}")
                 p=await superVG(speaker,text)
                 await bot.send_friend_message(aimFriend,Voice(path=p))
                 await bot.send(event, "发送成功")
